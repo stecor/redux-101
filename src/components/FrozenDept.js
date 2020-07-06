@@ -1,14 +1,26 @@
 import React,  {Component} from 'react';
 import { connect } from 'react-redux';
+import updateFrozen from '../actions/frozenInvUpdate';
+import { bindActionCreators } from 'redux';
 //connection react-redux
 
 class FrozenDept extends Component {
+
+  increment = (operation, index) => {
+      //console.log(operation,index);
+    this.props.updateFrozen(operation, index);
+  }
 
   render(){
 
     const frozenInventory = this.props.frozenData.map((item,i)=>{
       return(
-        <li key={i}>{item.food}: {item.quantity}</li>
+        <div key={i}>
+          <li >{item.food}: {item.quantity}</li>
+          <input  type="button" onClick={()=>{this.increment('+',i)}} value="+"/>
+          <input  type="button" onClick={()=>{this.increment('-',i)}} value="-"/>
+        </div>
+
       )
     })
 
@@ -35,8 +47,18 @@ function mapStateToProps(state){
   })
 }
 
+// mapDispatchToProps -> tie our component to mapDispatchToProps
+// it returns ->
+// it takes 1 arg: bindActionCreators an object: local prop, value will be func
+//2nd arg: is dispatch
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    updateFrozen: updateFrozen
+  },dispatch)
+}
+
 //console.log(connect);
 //export default FrozenDept;
 // connect takes 2 args -> function that is going to map a piece of redux state
 //to this component props
-export default connect(mapStateToProps)(FrozenDept);
+export default connect(mapStateToProps,mapDispatchToProps)(FrozenDept);

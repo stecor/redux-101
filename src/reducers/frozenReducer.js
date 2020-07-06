@@ -18,6 +18,21 @@ const seedData =[
 
 ]
 
-export default(state=seedData, action)=>{
-  return state;
+export default(state = seedData, action)=>{
+  console.log("frozen reducer is running");
+  console.log(action);
+
+  const newState = [...state];
+
+   if(action.type === 'updateFrozen'){
+       if (action.payload.operation === "+"){
+         console.log("I care about this action!!!");
+         newState[action.payload.index].quantity++
+       }else if (action.payload.operation === "-"){
+         newState[action.payload.index].quantity--
+       }
+       return newState;
+   }else{
+     return state;
+   }
 }

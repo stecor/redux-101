@@ -18,5 +18,7 @@ const seedData =[
 ]
 
 export default(state = seedData, action)=>{
+  console.log("Produce reducer is running");
+  console.log(action);
   return state;
 }

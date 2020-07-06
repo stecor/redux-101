@@ -4,9 +4,20 @@ import { connect } from 'react-redux';
 
 class FrozenDept extends Component {
   render(){
-    console.log(this.props.frozenData);
+    const frozenInventory = this.props.frozenData.map((item,i)=>{
+      return(
+        <li key={i}>{item.food}: {item.quantity}</li>
+      )
+    })
     return(
-          <h1>The frozen food department!</h1>
+      <div>
+        <h1>The frozen food department!</h1>
+        <ul>
+          <h3>{frozenInventory}</h3>
+        </ul>
+
+      </div>
+
     )
   }
 }
@@ -15,11 +26,11 @@ class FrozenDept extends Component {
 //mapStateToProps takes 1 arg, "state" and is the rootReducer/Store
 //returns a object:
 
-
-
 function mapStateToProps(state){
   return {
-    frozenData: state.frozen
+    frozenData: state.frozen,
+    meatData: state.meat,
+    produceData: state.produce
   }
 }
 

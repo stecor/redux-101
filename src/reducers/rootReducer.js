@@ -1,7 +1,8 @@
 
 import { combineReducers } from 'redux';
-import frozenReducer from './frozen';
-
+import frozenReducer from './produceReducer';
+import produceReducer from './produceReducer';
+import meatReducer from './meatReducer';
 //root reducer manage all reducers
 //make root reducer:
 // 1. method from redux -> combineReducers
@@ -16,8 +17,8 @@ import frozenReducer from './frozen';
 //5. create store -> passing it the rootReducer
 
   const rootreducer = combineReducers({
-    frozen: frozenReducer
+    frozen: frozenReducer,
+    produce: produceReducer,
+    meat: meatReducer    
   })
   export default rootreducer;
-
-  

@@ -17,6 +17,6 @@ const seedData =[
   }
 ]
 
-export default(state=seedData, action)=>{
+export default(state = seedData, action)=>{
   return state;
 }

@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 //connection react-redux
 
 class FrozenDept extends Component {
+
   render(){
+
     const frozenInventory = this.props.frozenData.map((item,i)=>{
       return(
         <li key={i}>{item.food}: {item.quantity}</li>
       )
     })
+
     return(
       <div>
         <h1>The frozen food department!</h1>
@@ -27,11 +30,9 @@ class FrozenDept extends Component {
 //returns a object:
 
 function mapStateToProps(state){
-  return {
-    frozenData: state.frozen,
-    meatData: state.meat,
-    produceData: state.produce
-  }
+  return ({
+    frozenData: state.frozen
+  })
 }
 
 //console.log(connect);

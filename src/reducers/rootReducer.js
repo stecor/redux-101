@@ -1,8 +1,8 @@
-
 import { combineReducers } from 'redux';
-import frozenReducer from './produceReducer';
+import frozenReducer from './frozenReducer';
 import produceReducer from './produceReducer';
 import meatReducer from './meatReducer';
+
 //root reducer manage all reducers
 //make root reducer:
 // 1. method from redux -> combineReducers
@@ -19,6 +19,6 @@ import meatReducer from './meatReducer';
   const rootreducer = combineReducers({
     frozen: frozenReducer,
     produce: produceReducer,
-    meat: meatReducer    
+    meat: meatReducer
   })
   export default rootreducer;

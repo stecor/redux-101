@@ -1,6 +1,10 @@
-export default () =>{
+export default (operation,index) =>{
   return  {
-    type: 'updateProduce'
+    type: 'updateProduce',
+    payload: {
+      operation,
+      index
+    }
   }
 
 }

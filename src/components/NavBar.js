@@ -7,7 +7,7 @@ class NavBar extends Component{
     return(
       <div>
         <ul>
-          <li><Link to="/">Entire Store</Link></li>
+          <li><Link to="/Main">Entire Store</Link></li>
           <li><Link to="/produce-dept">Produce Department</Link></li>
           <li><Link to="/frozen-dept">Frozen Department</Link></li>
           <li><Link to="/meat-dept">Meat Department</Link></li>

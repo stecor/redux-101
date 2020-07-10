@@ -32,6 +32,12 @@ export default(state = seedData, action)=>{
          newState[action.payload.index].quantity--
        }
        return newState;
+   }else if(action.type === 'resetInventory'){
+       let newState = [...state];
+       newState.forEach((item, i) => {
+         item.quantity = 0
+       });
+       return newState;
    }else{
      return state;
    }

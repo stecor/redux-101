@@ -1,9 +1,6 @@
-export default function(operation,index)=>{
+export default() =>{
+  console.log("clear inventory");
   return({
-    type: 'resetInventory',
-    payload:{
-      operation,
-      index
-    }
+    type: 'resetInventory'
   })
 }
